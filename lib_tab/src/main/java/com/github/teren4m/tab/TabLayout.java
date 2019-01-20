@@ -115,6 +115,7 @@ public class TabLayout extends HorizontalScrollView {
         for (int i = 0; i < viewPager.getAdapter().getCount(); i++) {
             addTab(viewPager, i);
         }
+        llTabs.getChildAt(0).setSelected(true);
     }
 
     private void addTab(final ViewPager viewPager, final int position) {
@@ -151,7 +152,7 @@ public class TabLayout extends HorizontalScrollView {
 
             @Override
             public void onPageSelected(int position) {
-                selectTab(viewPager);
+                selectTab(position, viewPager);
             }
 
             @Override
@@ -161,10 +162,12 @@ public class TabLayout extends HorizontalScrollView {
         });
     }
 
-    private void selectTab(ViewPager viewPager) {
+    private void selectTab(int position, ViewPager viewPager) {
+        CustomViewFragmentPagerAdapter adapter = (CustomViewFragmentPagerAdapter) viewPager.getAdapter();
         for (int i = 0; i < llTabs.getChildCount(); i++) {
-
+            llTabs.getChildAt(i).setSelected(false);
         }
+        adapter.getView(position).setSelected(true);
     }
 
     private void changeMaxTabWidth() {

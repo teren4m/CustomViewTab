@@ -4,12 +4,13 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:minHeight="200dp"
-              android:background="@android:color/holo_blue_bright">
+              android:background="@drawable/custom_selector">
 
     <TextView
             android:id="@+id/tab_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/custom_selector"
             android:text="TAB"/>
 
 </LinearLayout>
